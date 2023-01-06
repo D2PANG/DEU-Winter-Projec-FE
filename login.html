@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://releases.jquery.com/git/jquery-git.min.js"></script>
+        <title>DEUKurly - 로그인</title>
+        <link rel="stylesheet" href="css/login.css">
+        <script src="./js/login.js"></script>
+    </head>
+    
+    
+
+    <body>
+        <div id="container" class="container">
+
+            <div id="main">
+                <div id="content">
+                    <div class="section_login">
+                        <h3 class="tit_login">로그인</h3>
+                        <div class="write_form">
+                            <div class="write_view login_view">
+                                <form method="post" name="login_form" id="form"  action="mainKurly.html">
+                                    <input type="hidden" name="returnUrl" value="">
+                                    <input type="hidden" name="close" value="">
+                                    <input type="text" name="m_id" size="20" tabindex="1" value placeholder="아이디를 입력해주세요">
+                                    <input type="password" name="password" size="20" tabindex="2" placeholder="비밀번호를 입력해주세요">
+                                    <button type="button" onclick="check_input()" class="btn_type1">
+                                        <span class="txt_type">로그인</span>
+                                    </button>
+                                </form>
+                                <!-- 회원가입으로 감 -->
+                                <a href="join.html" class="btn_type2 btn_member"> 
+                                    <span class="txt_type">회원가입</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+        <script>
+
+            var id = "test_id"
+            var pw = "test_pw"
+            // 아이디와 비밀번호를 테스트로 불러옴
+
+            function check_input(){  // 로그인 수행
+                if (!document.login_form.m_id.value){
+                    alert("아이디를 입력하세요");
+                    document.login_form.m_id.focus();
+                    return;
+                }
+                if (!document.login_form.password.value){
+                    alert("비밀번호를 입력하세요");
+                    document.login_form.password.focus();
+                    return;
+                }
+                if (document.login_form.m_id.value != id || document.login_form.password.value != pw){
+                    alert("아이디 또는 비밀번호가 일치하지 않습니다.");
+                    history.go(0);
+                    return;
+                }
+                document.login_form.submit();
+
+            }
+        </script>
+    </body>
+</html>
